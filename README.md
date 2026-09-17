@@ -1,6 +1,6 @@
 # PROOF Centre Website
 
-Welcome to the repository for the **PROOF Centre of Excellence** website ([proofcentre.github.io](https://proofcentre.github.io/)).
+Welcome to the repository for the **PROOF Centre of Excellence** website ([theproofcentre.github.io/website](https://theproofcentre.github.io/website/)).
 
 This website is built with [Hugo](https://gohugo.io/) and features an automated, native data ingestion pipeline that syncs content directly from a shared Google Spreadsheet.
 
@@ -151,7 +151,7 @@ If publications, team members, or patents are missing on the live site:
    - Click **Data > Remove filter** (or click the green funnel icon on the main toolbar to disable it).
    - Alternatively, click the funnel icon on the filtered column and choose **Select all > OK**.
 4. **Trigger a website sync**:
-   - Trigger an on-demand sync via [GitHub Actions](https://github.com/cashoes/proofcentre/actions/workflows/hugo.yml) (or wait for the nightly 11:00 PM PST sync). All content will immediately be restored!
+   - Trigger an on-demand sync via [GitHub Actions](https://github.com/theproofcentre/website/actions/workflows/hugo.yml) (or wait for the nightly 11:00 PM PST sync). All content will immediately be restored!
 
 ---
 
@@ -181,7 +181,7 @@ When you make changes to the Google Sheet, they are published to the live websit
    - Every night at **06:00 UTC (11:00 PM PST)**, GitHub Actions automatically fetches the latest data from Google Sheets, rebuilds the site, and deploys it to GitHub Pages.
 2. **Instant On-Demand Sync**:
    - If you need changes published immediately without waiting overnight:
-     1. Go to the [PROOF Centre GitHub Actions](https://github.com/cashoes/proofcentre/actions/workflows/hugo.yml).
+     1. Go to the [PROOF Centre GitHub Actions](https://github.com/theproofcentre/website/actions/workflows/hugo.yml).
      2. Click **Deploy Hugo site to Pages** on the left menu.
      3. Click the **Run workflow** dropdown on the right and click the green **Run workflow** button.
      4. Within ~60 seconds, your updates will be live!
@@ -200,7 +200,7 @@ When you make changes to the Google Sheet, they are published to the live websit
 
 ```bash
 # Clone repository
-git clone https://github.com/cashoes/proofcentre.git
+git clone https://github.com/theproofcentre/website.git
 cd website
 
 # Start Hugo dev server with remote cache-busting

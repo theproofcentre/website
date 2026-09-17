@@ -54,7 +54,7 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url || 'https://cashoes.github.io/proofcentre' }}/"
+            --baseURL "${{ steps.pages.outputs.base_url || 'https://theproofcentre.github.io/website' }}/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
