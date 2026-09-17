@@ -9,9 +9,10 @@ This website is built with [Hugo](https://gohugo.io/) and features an automated,
 ## 📖 Table of Contents
 1. [For Content Editors: Google Sheets Guide](#-for-content-editors-google-sheets-guide)
    - [Access & Permissions](#access--permissions)
-   - [Golden Rules (Do Not Break!)](#golden-rules-do-not-break)
+   - [Things That Can Break The Website](#things-that-can-break-the-website)
    - [Tab-by-Tab Column Guide](#tab-by-tab-column-guide)
    - [Formatting & Styling Sheets Safely](#formatting--styling-sheets-safely)
+   - [Filtering & Sorting Safely: Always Use "Filter Views"](#filtering--sorting-safely-always-use-filter-views)
    - [Guarding Against Deletion & Human Error](#guarding-against-deletion--human-error)
    - [When Do Edits Appear on the Website?](#when-do-edits-appear-on-the-website)
 2. [For Developers & Site Maintainers](#-for-developers--site-maintainers)
@@ -20,6 +21,7 @@ This website is built with [Hugo](https://gohugo.io/) and features an automated,
    - [How Ingestion Works](#how-ingestion-works)
    - [Fallback Resilience](#fallback-resilience)
    - [Deployment Pipeline](#deployment-pipeline)
+   - [Troubleshooting: Missing or "Dropped" Content](#troubleshooting-missing-or-dropped-content)
 
 ---
 
@@ -35,10 +37,10 @@ Non-technical team members can manage publications, team bios, and patents entir
 
 ---
 
-### Golden Rules (Do Not Break!)
+### Things That Can Break The Website
 
 > [!CAUTION]
-> The automated website build depends on exact tab and column names. Violating these 3 rules will cause Hugo to fall back to backup data.
+> The automated website build depends on exact tab names, column names, and unfiltered data views. Items 1–2 will trigger fallback to static backup data, while item 4 will cause rows to be **silently dropped from the website**.
 
 1. **Never rename the tabs**: The tabs must remain named exactly:
    - `Publications`
@@ -46,6 +48,7 @@ Non-technical team members can manage publications, team bios, and patents entir
    - `Patents`
 2. **Never rename or delete Row 1 (Header Row)**: The text in Row 1 (`year`, `title`, `lead`, etc.) must remain lowercase and exact.
 3. **No completely blank rows between data**: Add new records in the next available empty row at the bottom (or insert rows directly between existing entries).
+4. **Never leave active standard filters on the sheet**: Standard filters (`Data > Create a filter`) hide rows globally. Because Google's CSV export only downloads visible rows, any filtered-out rows will be **silently dropped from the live website**! Always use **Filter Views** instead (`Data > Filter views`) to sort or filter safely.
 
 ---
 
@@ -111,6 +114,44 @@ You can safely:
   - Select the `tag` column, click **Data > Data validation**, and enter dropdown items: `Original Research`, `Editorial & Commentary`, `Review`.
 - **Add Comments & Hover Notes**: Right-click any header cell and click **Insert note** to write guidance for teammates (e.g., *"Enter full DOI link here"*).
 - **Adjust Column Widths & Wrap Text**: Set text wrapping or widen columns to make long titles comfortable to read.
+
+---
+
+### Filtering & Sorting Safely: Always Use "Filter Views"
+
+> [!WARNING]
+> **Standard Filters Drop Content from the Website!**  
+> If someone uses standard filtering (**Data > Create a filter** or the toolbar funnel icon) and filters rows (e.g., viewing only year 2025, or unchecking specific categories), Google Sheets hides all non-matching rows globally.  
+> When the website builds, Hugo requests Google's CSV export endpoint (`gviz/tq?tqx=out:csv`). **Google's CSV export only includes currently visible rows.** Any rows hidden by an active standard filter are omitted from the export, causing them to **silently disappear from the live website**!
+
+#### The Safe Solution: Use Filter Views
+
+Google Sheets includes a powerful feature built specifically for this: **Filter Views**. Filter Views allow you to filter and sort data for your own personal viewing **without affecting any other collaborator and without hiding rows from the CSV export**.
+
+##### How to Create a Safe Filter View:
+1. Select your data (or click any cell inside the data).
+2. In the Google Sheets menu, click **Data > Filter views > Create new filter view** (or click the dropdown arrow next to the funnel icon on the toolbar and choose **Create new filter view**).
+3. The column headers and row numbers will turn **dark grey / black**. This confirms you are in a temporary, private Filter View.
+4. You can now sort or filter any column (by year, tag, author, etc.) freely.
+5. When you are done, close the filter view by clicking the **X** in the top-right corner of the black bar (or click **Data > Filter views > None**).
+
+##### Why Filter Views are 100% Safe:
+- **Zero Impact on the Website**: The master sheet remains completely unfiltered. The CSV export fetches all rows, so no publications, team members, or patents will ever be dropped.
+- **Collaborator Friendly**: Other team members viewing the sheet at the same time will not see their view rearranged or hidden.
+- **Saveable & Reusable**: You can name your filter view (e.g. *"2025 Publications"*) in the top-left box on the black bar, and easily switch back to it anytime under **Data > Filter views**.
+
+#### What to Do If Content Has Disappeared from the Website
+
+If publications, team members, or patents are missing on the live site:
+1. Open the Google Sheet and check the column headers on each tab.
+2. **Look for active standard filters**:
+   - Are any column headers displaying a green funnel icon instead of the normal dropdown arrow?
+   - Are the row numbers on the left displayed in green text or skipping numbers (e.g., jumping from row 12 to 34)?
+3. **Turn off the filter**:
+   - Click **Data > Remove filter** (or click the green funnel icon on the main toolbar to disable it).
+   - Alternatively, click the funnel icon on the filtered column and choose **Select all > OK**.
+4. **Trigger a website sync**:
+   - Trigger an on-demand sync via [GitHub Actions](https://github.com/cashoes/proofcentre/actions/workflows/hugo.yml) (or wait for the nightly 11:00 PM PST sync). All content will immediately be restored!
 
 ---
 
@@ -195,3 +236,19 @@ The GitHub Actions workflow [`.github/workflows/hugo.yml`](.github/workflows/hug
 - `push` to branch `main`
 - `schedule` cron every night at `0 6 * * *` (06:00 UTC)
 - `workflow_dispatch` manual trigger via GitHub web UI
+
+---
+
+### Troubleshooting: Missing or "Dropped" Content
+
+If publications, team members, or patents are unexpectedly missing from the live website even though they exist in the Google Sheet:
+
+1. **Check for Active Sheet Filters (Most Common Cause)**:
+   - Google's CSV export endpoint (`/gviz/tq?tqx=out:csv&sheet={TAB}`) exports the spreadsheet in its current visual presentation state.
+   - If any collaborator applied a standard filter (**Data > Create a filter**), Google omits all hidden rows from the returned CSV payload.
+   - Because the HTTP request succeeds (`200 OK`) and the CSV still contains valid headers, Hugo parses the truncated dataset without error—meaning the fallback YAML files are **not** triggered.
+   - **Remedy**: In Google Sheets, click **Data > Remove filter** and re-run the deployment workflow in GitHub Actions. Always encourage editors to use **Filter Views** instead.
+2. **Check for Empty Rows**:
+   - Ensure there are no entirely blank rows interrupting the table, which could prematurely terminate row processing.
+3. **Verify Header Integrity**:
+   - Ensure Row 1 column names match the exact lowercase names required (e.g., `year`, `title`, `lead`, `tag`, `pillar`). Renaming or removing Row 1 headers causes Hugo to fall back to the backup YAML data.
