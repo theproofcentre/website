@@ -58,7 +58,12 @@ def main():
     with open(yaml_path, 'r', encoding='utf-8') as f:
         data = yaml.safe_load(f)
 
-    archive = data.get('archive', [])
+    if isinstance(data, dict):
+        archive = data.get('archive', [])
+    elif isinstance(data, list):
+        archive = data
+    else:
+        archive = []
     print(f"Loaded {len(archive)} publications from data/publications.yml")
 
     records = []
