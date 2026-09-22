@@ -224,7 +224,7 @@
     </header>
 
     <!-- Core Research Section -->
-    {{ $allPubs := partial "data/get_publications.html" . }}
+    {{ $allPubs := hugo.Data.publications }}
     <section class="mb-32 scroll-mt-28" id="focus-areas">
       <div class="mb-12 border-b border-outline-variant/50 pb-4">
         <h2 class="font-heading text-2xl md:text-3xl font-bold text-primary">{{ .Params.research.title }}</h2>
@@ -266,10 +266,15 @@
               {{ range $pillarPubs }}
               {{ $pubDate := time (.date | default (printf "%d-01-01" .year)) }}
               {{ $ageDays := div (sub now.Unix $pubDate.Unix) 86400 }}
-              {{ if and .link (ne .link "#") }}
+              {{ $hasLink := and .link (ne .link "#") }}
+              {{ if $hasLink }}
               <a href="{{ .link }}" target="_blank" rel="noopener"
                 class="group block p-3.5 sm:p-4 rounded-lg bg-white border border-outline-variant/30 shadow-2xs hover:shadow-xs hover:border-outline-variant/60 transition-all duration-200 cursor-pointer min-w-0"
                 style="border-top: 2.5px solid {{ $areaColor }};">
+              {{ else }}
+              <div class="p-3.5 sm:p-4 rounded-lg bg-white border border-outline-variant/30 shadow-2xs min-w-0"
+                style="border-top: 2.5px solid {{ $areaColor }};">
+              {{ end }}
                 <div class="flex items-center justify-between gap-2 mb-1.5 min-w-0">
                   <div class="flex items-center gap-1 min-w-0 text-[11px] font-semibold uppercase tracking-wider text-primary/85">
                     <span class="truncate min-w-0">{{ .journal }}</span>
@@ -285,42 +290,22 @@
                       {{ lang.FormatNumberCustom 0 .citations }} citations
                     </span>
                     {{ end }}
+                    {{ if $hasLink }}
                     <span class="material-symbols-outlined text-[13px] text-on-surface-variant/40 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0">
                       arrow_outward
                     </span>
+                    {{ end }}
                   </div>
                 </div>
-                <h4 class="font-heading text-xs sm:text-sm font-bold text-primary leading-snug mb-1 group-hover:text-primary-container transition-colors">
+                <h4 class="font-heading text-xs sm:text-sm font-bold text-primary leading-snug mb-1 {{ if $hasLink }}group-hover:text-primary-container transition-colors{{ end }}">
                   {{ .title }}
                 </h4>
                 {{ if .authors }}
                 <p class="text-[11px] text-on-surface-variant/80 line-clamp-1 leading-normal font-normal">{{ .authors }}</p>
                 {{ end }}
+              {{ if $hasLink }}
               </a>
               {{ else }}
-              <div class="p-3.5 sm:p-4 rounded-lg bg-white border border-outline-variant/30 shadow-2xs min-w-0"
-                style="border-top: 2.5px solid {{ $areaColor }};">
-                <div class="flex items-center justify-between gap-2 mb-1.5 min-w-0">
-                  <div class="flex items-center gap-1 min-w-0 text-[11px] font-semibold uppercase tracking-wider text-primary/85">
-                    <span class="truncate min-w-0">{{ .journal }}</span>
-                    <span class="shrink-0 font-normal text-on-surface-variant/70">· {{ .year }}</span>
-                  </div>
-                  {{ if lt $ageDays 730 }}
-                  <span class="text-[10px] font-medium tracking-wide text-primary/75 bg-surface-container px-1.5 py-0.5 rounded shrink-0">
-                    Recent
-                  </span>
-                  {{ else if gt .citations 0 }}
-                  <span class="text-[11px] text-on-surface-variant/70 font-medium tabular-nums shrink-0">
-                    {{ lang.FormatNumberCustom 0 .citations }} citations
-                  </span>
-                  {{ end }}
-                </div>
-                <h4 class="font-heading text-xs sm:text-sm font-bold text-primary leading-snug mb-1">
-                  {{ .title }}
-                </h4>
-                {{ if .authors }}
-                <p class="text-[11px] text-on-surface-variant/80 line-clamp-1 leading-normal font-normal">{{ .authors }}</p>
-                {{ end }}
               </div>
               {{ end }}
               {{ end }}
@@ -341,7 +326,7 @@
       </div>
 
       <div class="divide-y divide-outline-variant/30">
-        {{ range (partial "data/get_team.html" .) }}
+        {{ range hugo.Data.team }}
         <div class="team-member-row py-8 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 items-start">
           <!-- Member Info (Left Column) -->
           <div class="md:col-span-4 lg:col-span-4 flex items-start gap-4 sm:gap-5">
@@ -627,7 +612,7 @@
             </tr>
           </thead>
           <tbody class="divide-y divide-outline-variant/30 text-sm">
-            {{ range (partial "data/get_patents.html" .) }}
+            {{ range hugo.Data.patents }}
             <tr class="hover:bg-surface-container-low transition-colors cursor-pointer group"
               {{ if and .link (ne .link "#") }}onclick="if (!event.target.closest('a')) window.open('{{ .link }}', '_blank', 'noopener')"{{ end }}>
               <td class="py-3.5 px-2 text-on-surface-variant text-xs sm:text-sm align-top">{{ .year }}</td>

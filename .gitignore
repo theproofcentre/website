@@ -14,6 +14,5 @@ Thumbs.db
 
 # Local agent configs & maintenance
 .agents/
-scripts/
 *.ris
 NEXT_STEPS.md

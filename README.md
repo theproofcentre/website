@@ -203,39 +203,29 @@ When you make changes to the Google Sheet, they are published to the live websit
 git clone https://github.com/theproofcentre/website.git
 cd website
 
-# Start Hugo dev server with remote cache-busting
-hugo server -D --ignoreCache
+# (Optional) Fetch latest data from Google Sheets into local YAML files
+python scripts/sync_sheets_to_yaml.py
+
+# Start Hugo dev server (100% offline, lightning fast)
+hugo server -D
 ```
 Access the site at `http://localhost:1313/`.
 
 ### How Ingestion Works
-Data ingestion is 100% native to Hugo without external Python, Node, or build-time scripts:
-1. `hugo.toml` specifies the Google Sheet ID and tab names under `[params.google_sheets]`.
-2. Layout partials in [`layouts/partials/data/`](layouts/partials/data/) construct the CSV export URL:
-   `https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv&sheet={TAB_NAME}`
-3. Hugo's `resources.GetRemote` downloads the live CSV into memory.
-4. Hugo's `transform.Unmarshal` unpacks the CSV rows into a 2D slice (`[][]string`).
-5. The partial matches header columns to row values, casts data types (`int`, `bool`), and returns a clean dictionary slice to the layout.
-
-### Fallback Resilience
-Hugo wraps all remote requests in the modern `try` template keyword (`with try (resources.GetRemote $url)`).
-If:
-- The spreadsheet link is broken,
-- The network is disconnected during local offline development, or
-- `params.google_sheets.enabled` is set to `false`,
-
-Hugo automatically catches the condition, logs a warning, and immediately serves data from the local backup YAML files in [`data/`](data/):
-- `data/publications.yml`
-- `data/team.yml`
-- `data/patents.yml`
-
-The site build **never breaks** due to a remote network failure.
+Data ingestion follows a clean, decoupled pipeline:
+1. **Google Sheets as Headless CMS**: Non-technical team members manage publications, team bios, and patents in Google Sheets.
+2. **Automated Sync Script**: [`scripts/sync_sheets_to_yaml.py`](scripts/sync_sheets_to_yaml.py) downloads CSVs via Google's export URLs, validates data types (e.g. `pillar` codes `"01"`–`"04"`, `lead` booleans, integer citations), and detects if any content has changed.
+3. **Smart Change Detection**:
+   - If changes are found, the script updates `data/publications.yml`, `data/team.yml`, and `data/patents.yml`.
+   - In GitHub Actions, the bot commits updated YAML back to `main`, then Hugo compiles the site and deploys.
+   - If no changes are found, the action exits in ~5 seconds with zero Git commits and zero wasted build minutes.
+4. **Native Hugo Data**: Templates read directly from `hugo.Data.publications`, `hugo.Data.team`, and `hugo.Data.patents`. Hugo never makes external network requests at build time, resulting in instantaneous builds (~30ms) and complete immunity to API outages.
 
 ### Deployment Pipeline
 The GitHub Actions workflow [`.github/workflows/hugo.yml`](.github/workflows/hugo.yml) triggers on:
-- `push` to branch `main`
+- `push` to branch `main` (ignoring `data/**` commits to prevent circular build loops)
 - `schedule` cron every night at `0 6 * * *` (06:00 UTC)
-- `workflow_dispatch` manual trigger via GitHub web UI
+- `workflow_dispatch` manual trigger via the GitHub web UI (Actions tab)
 
 ---
 
