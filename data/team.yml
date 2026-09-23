@@ -15,9 +15,9 @@
     multi-omic pipelines to translate complex molecular data into non-invasive clinical
     biomarkers.
   bio: |-
-    Casey Shannon is Director of Data Science at the PROOF Centre of Excellence. Working at the interface of computer science, statistics, and biology, he develops computational pipelines and statistical learning methods to interpret high-dimensional multi-omic data from clinical cohorts. He was the computational lead on HEARTBiT, a blood-based gene expression test designed to detect acute cellular rejection in heart transplant recipients.
+    Casey Shannon is Director of Data Science at the PROOF Centre of Excellence at the University of British Columbia (UBC). Working at the interface of computer science, statistics, and biology, he develops computational pipelines and statistical learning frameworks to interpret high-dimensional multi-omic data from complex clinical cohorts. Committed to open science, he co-developed the DIABLO framework in mixOmics along with methods for in silico cell deconvolution.
 
-    Interested in open and reproducible science, he co-developed the DIABLO multi-omics integration framework in mixOmics and open-source tools for in silico cell-type deconvolution. His collaborative research spans international partnerships, including the Expanded Program on Immunization Consortium (EPIC) examining infant immune development and vaccine response, the IMPACC study investigating COVID-19 trajectories, and ongoing biomarker studies in heart and lung disease. Casey completed Bachelor’s degrees in Cell Physiology & Genetics as well as Computer Science at the University of British Columbia.
+    Casey's translational work includes serving as computational lead for HEARTBiT, a blood-based gene expression test for detecting acute cellular rejection in heart transplant recipients. He also contributes computational leadership to international initiatives investigating infant vaccine response (EPIC), COVID-19 trajectories (IMPACC), and cardiopulmonary biomarkers. He completed dual degrees in Cell Physiology & Genetics and Computer Science at UBC.
   orcid: 0000-0002-5687-3156
   image: images/headshots/casey.jpg
   img_position: 50% 50%
