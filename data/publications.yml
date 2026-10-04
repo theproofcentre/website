@@ -717,7 +717,7 @@
   display_authors: Shan Dan, Jin Wenyi, Li Fei, et al.
   tag: Original Research
   lead: false
-  citations: 12
+  citations: 13
   date: '2025-08-03'
   pillar: ''
 - year: 2025
@@ -1559,7 +1559,7 @@
   display_authors: Brook Byron, Harbeson Danny J., Shannon Casey P., et al.
   tag: Original Research
   lead: false
-  citations: 136
+  citations: 137
   date: '2020-05-06'
   pillar: ''
 - year: 2020
@@ -1578,7 +1578,7 @@
   display_authors: Idoko Olubukola T., Smolen Kinga K., Wariri Oghenebrume, et al.
   tag: Study Protocol
   lead: false
-  citations: 21
+  citations: 22
   date: '2020-04-30'
   pillar: ''
 - year: 2020
@@ -1868,7 +1868,7 @@
   display_authors: Alotaibi Nawaf M., Chen Virginia, Hollander Zsuzsanna, et al.
   tag: Original Research
   lead: false
-  citations: 16
+  citations: 18
   date: '2019-01-01'
   pillar: ''
 - year: 2018
@@ -2180,7 +2180,7 @@
   display_authors: Sukma Dewi Ihdina, Hollander Zsuzsanna, Lam Karen K., et al.
   tag: Original Research
   lead: false
-  citations: 60
+  citations: 61
   date: '2017-01-26'
   pillar: ''
 - year: 2017
@@ -2195,7 +2195,7 @@
   display_authors: Shannon Casey P., Balshaw Robert, Chen Virginia, et al.
   tag: Original Research
   lead: true
-  citations: 10
+  citations: 11
   date: '2017-01-06'
   pillar: ''
 - year: 2009
@@ -2222,7 +2222,7 @@
   display_authors: Sukma Dewi Ihdina, Celik Selvi, Karlsson Anna, et al.
   tag: Original Research
   lead: false
-  citations: 95
+  citations: 96
   date: '2016-12-01'
   pillar: ''
 - year: 2016
@@ -2249,7 +2249,7 @@
   display_authors: Hollander Zsuzsanna, DeMarco Mari L., Sadatsafavi Mohsen, et al.
   tag: Original Research
   lead: true
-  citations: 41
+  citations: 42
   date: '2016-10-01'
   pillar: ''
 - year: 2017
@@ -2263,7 +2263,7 @@
   display_authors: Khakban Amir, Sin Don D., FitzGerald J. Mark, et al.
   tag: Original Research
   lead: false
-  citations: 126
+  citations: 127
   date: '2016-09-14'
   pillar: ''
 - year: 2016
@@ -2296,7 +2296,7 @@
   display_authors: Zafari Zafar, Sin Don D., Postma Dirkje S., et al.
   tag: Original Research
   lead: false
-  citations: 46
+  citations: 47
   date: '2016-08-02'
   pillar: ''
 - year: 2016
@@ -2356,7 +2356,7 @@
   display_authors: Croft Carys A., Culibrk Luka, Moore Margo M., et al.
   tag: Review
   lead: true
-  citations: 147
+  citations: 151
   date: '2016-04-07'
   pillar: ''
 - year: 2016
@@ -2381,7 +2381,7 @@
   display_authors: Fung Gabriel, Luo Honglin, Qiu Ye, et al.
   tag: Review
   lead: true
-  citations: 453
+  citations: 455
   date: '2016-02-04'
   pillar: ''
 - year: 2016
@@ -2452,7 +2452,7 @@
     Team, et al.
   tag: Original Research
   lead: false
-  citations: 66
+  citations: 69
   date: '2015-08-27'
   pillar: ''
 - year: 2015
@@ -2479,7 +2479,7 @@
   display_authors: Khakban Amir, Sin Don D., FitzGerald J. Mark, et al.
   tag: Original Research
   lead: false
-  citations: 76
+  citations: 77
   date: '2015-06-04'
   pillar: ''
 - year: 2016
@@ -2536,7 +2536,7 @@
   display_authors: Günther Oliver P., Shin Heesun, Ng Raymond T., et al.
   tag: Original Research
   lead: true
-  citations: 44
+  citations: 47
   date: '2014-11-01'
   pillar: ''
 - year: 2014
@@ -2551,7 +2551,7 @@
   display_authors: Singh Amrit, Yamamoto Masatsugu, Ruan Jian, et al.
   tag: Original Research
   lead: true
-  citations: 35
+  citations: 34
   date: '2014-06-24'
   pillar: ''
 - year: 2014
@@ -2653,7 +2653,7 @@
   display_authors: Scherer Andreas, Günther Oliver P, Balshaw Robert F, et al.
   tag: Original Research
   lead: true
-  citations: 50
+  citations: 51
   date: '2013-06-28'
   pillar: ''
 - year: 2013
@@ -2668,7 +2668,7 @@
   display_authors: Lin David, Cohen Freue Gabriela, Hollander Zsuzsanna, et al.
   tag: Original Research
   lead: true
-  citations: 33
+  citations: 34
   date: '2013-06-21'
   pillar: ''
 - year: 2013
@@ -2756,7 +2756,7 @@
   display_authors: Najafzadeh Mehdi, Marra Carlo A., Lynd Larry D., et al.
   tag: Original Research
   lead: false
-  citations: 38
+  citations: 37
   date: '2012-10-11'
   pillar: ''
 - year: 2012
@@ -2785,7 +2785,7 @@
   display_authors: Domanski D, Percy AJ, Yang J, et al.
   tag: Original Research
   lead: false
-  citations: 204
+  citations: 206
   date: '2012-04-01'
   pillar: ''
 - year: 2012
@@ -2829,7 +2829,7 @@
     al.
   tag: Original Research
   lead: true
-  citations: 10
+  citations: 11
   date: '2012-01-01'
   pillar: ''
 - year: 2012
@@ -2956,7 +2956,7 @@
   display_authors: Hollander Zsuzsanna, Lin David, Chen Virginia, et al.
   tag: Original Research
   lead: true
-  citations: 27
+  citations: 28
   date: '2010-11-13'
   pillar: ''
 - year: 2010
@@ -3122,7 +3122,7 @@
   display_authors: Fujii Hisaki, Cuvelier Geoff, She Kevin, et al.
   tag: Original Research
   lead: false
-  citations: 147
+  citations: 148
   date: '2007-10-09'
   pillar: ''
 - year: 2007
@@ -3213,7 +3213,7 @@
   display_authors: Good B. M.
   tag: Original Research
   lead: false
-  citations: 89
+  citations: 90
   date: '2006-05-23'
   pillar: ''
 - year: 2006
@@ -3226,6 +3226,6 @@
   display_authors: Rahmani Maziar, Wong Brian W., Ang Lisa, et al.
   tag: Original Research
   lead: true
-  citations: 106
+  citations: 105
   date: '2006-01-01'
   pillar: ''
