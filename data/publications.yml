@@ -432,7 +432,7 @@
   display_authors: Ledesma Jorge R, Zhang Meixin, Liew Mei Fong, et al.
   tag: Original Research
   lead: false
-  citations: 1
+  citations: 2
   date: '2026-07-01'
   pillar: ''
 - year: 2026
@@ -446,7 +446,7 @@
   display_authors: Espín E, Yang C, Shannon CP, et al.
   tag: Original Research
   lead: true
-  citations: 1
+  citations: 0
   date: '2026-06-04'
   pillar: ''
 - year: 2026
@@ -612,7 +612,7 @@
   display_authors: Jo Hyesu, Kim Tae Hyeon, Park Jaeyu, et al.
   tag: Original Research
   lead: false
-  citations: 13
+  citations: 16
   date: '2026-01-21'
   pillar: ''
 - year: 2026
@@ -730,7 +730,7 @@
   display_authors: Yang Chengliang, Tebbutt Scott J
   tag: Editorial & Commentary
   lead: true
-  citations: 0
+  citations: 1
   date: '2025-08-01'
   pillar: ''
 - year: 2025
@@ -744,7 +744,7 @@
   display_authors: Yang Chengliang, Lapp Linda, Amstutz Alain, et al.
   tag: Review
   lead: true
-  citations: 4
+  citations: 3
   date: '2025-07-01'
   pillar: ''
 - year: 2025
@@ -778,7 +778,7 @@
   display_authors: Amodio D, Rossetti C, Angelidou A, et al.
   tag: Study Protocol
   lead: false
-  citations: 2
+  citations: 1
   date: '2025-06-23'
   pillar: ''
 - year: 2025
@@ -842,7 +842,7 @@
   display_authors: He D, Guler SA, Shannon CP, et al.
   tag: Original Research
   lead: true
-  citations: 13
+  citations: 15
   date: '2024-11-27'
   pillar: '02'
 - year: 2024
@@ -934,7 +934,7 @@
   display_authors: Pi Zheshun, Liu Weici, Song Chenghu, et al.
   tag: Original Research
   lead: false
-  citations: 13
+  citations: 14
   date: '2024-09-07'
   pillar: ''
 - year: 2024
@@ -976,7 +976,7 @@
   display_authors: Yang Chengliang, Shannon Casey P., Zhao Hedi, et al.
   tag: Editorial & Commentary
   lead: true
-  citations: 8
+  citations: 7
   date: '2024-06-19'
   pillar: ''
 - year: 2024
@@ -1027,7 +1027,7 @@
   display_authors: Yang Chengliang, Shannon Casey P., Tebbutt Scott J.
   tag: Editorial & Commentary
   lead: true
-  citations: 3
+  citations: 2
   date: '2024-02-19'
   pillar: ''
 - year: 2024
@@ -1055,7 +1055,7 @@
   display_authors: Montante S, Ben-Othman R, Amenyogbe N, et al.
   tag: Original Research
   lead: false
-  citations: 5
+  citations: 4
   date: '2024-01-01'
   pillar: ''
 - year: 2023
@@ -1110,7 +1110,7 @@
   display_authors: Kim Ji-Young V., Assadian Sara, Hollander Zsuzsanna, et al.
   tag: Original Research
   lead: true
-  citations: 15
+  citations: 16
   date: '2023-06-27'
   pillar: ''
 - year: 2023
@@ -1135,7 +1135,7 @@
   display_authors: Espín Estefanía, Yang Chengliang, Shannon Casey P., et al.
   tag: Review
   lead: true
-  citations: 107
+  citations: 108
   date: '2023-04-08'
   pillar: '03'
 - year: 2023
@@ -1373,7 +1373,7 @@
   display_authors: Skinnider Michael A., Rogalski Jason, Tigchelaar Seth, et al.
   tag: Original Research
   lead: false
-  citations: 29
+  citations: 30
   date: '2021-01-01'
   pillar: ''
 - year: 2021
@@ -1421,7 +1421,7 @@
   display_authors: Shannon Casey P., Blimkie Travis M., Ben-Othman Rym, et al.
   tag: Original Research
   lead: true
-  citations: 38
+  citations: 39
   date: '2020-11-30'
   pillar: ''
 - year: 2021
@@ -1489,7 +1489,7 @@
   display_authors: Amenyogbe Nelly, Dimitriu Pedro, Cho Patricia, et al.
   tag: Original Research
   lead: false
-  citations: 33
+  citations: 35
   date: '2020-10-16'
   pillar: ''
 - year: 2021
@@ -1504,7 +1504,7 @@
   display_authors: Vignolo Sofia M., Diray-Arce Joann, McEnaney Kerry, et al.
   tag: Original Research
   lead: false
-  citations: 13
+  citations: 15
   date: '2020-09-22'
   pillar: ''
 - year: 2020
@@ -1520,7 +1520,7 @@
   display_authors: Kim Ji-Young V, Lee Brandon, Koitsopoulos Pavlos, et al.
   tag: Original Research
   lead: true
-  citations: 7
+  citations: 8
   date: '2020-06-06'
   pillar: ''
 - year: 2020
@@ -1533,7 +1533,7 @@
   display_authors: Zhou Qiong, Chen Virginia, Shannon Casey P., et al.
   tag: Original Research
   lead: false
-  citations: 389
+  citations: 391
   date: '2020-05-15'
   pillar: '03'
 - year: 2020
@@ -1638,7 +1638,7 @@
   display_authors: Kim Andrew J., Xu Na, Umeyama Kazuhiro, et al.
   tag: Original Research
   lead: false
-  citations: 65
+  citations: 64
   date: '2020-01-13'
   pillar: ''
 - year: 2020
@@ -1657,7 +1657,7 @@
   display_authors: Shannon Casey P., Hollander Zsuzsanna, Dai Darlene L.Y., et al.
   tag: Original Research
   lead: true
-  citations: 18
+  citations: 19
   date: '2019-11-25'
   pillar: '01'
 - year: 2019
@@ -1671,7 +1671,7 @@
   display_authors: He Daniel, Yang Chen Xi, Sahin Basak, et al.
   tag: Original Research
   lead: true
-  citations: 42
+  citations: 46
   date: '2019-11-21'
   pillar: ''
 - year: 2019
@@ -1762,7 +1762,7 @@
   display_authors: Lee Amy H., Shannon Casey P., Amenyogbe Nelly, et al.
   tag: Original Research
   lead: false
-  citations: 201
+  citations: 203
   date: '2019-03-12'
   pillar: '03'
 - year: 2019
@@ -1821,7 +1821,7 @@
   display_authors: Singh Amrit, Shannon Casey P, Gautier Benoît, et al.
   tag: Original Research
   lead: true
-  citations: 1128
+  citations: 1167
   date: '2019-01-14'
   pillar: '04'
 - year: 2019
@@ -1882,7 +1882,7 @@
   display_authors: Toor Amreen, Culibrk Luka, Singhera Gurpreet K., et al.
   tag: Original Research
   lead: true
-  citations: 31
+  citations: 32
   date: '2018-12-27'
   pillar: ''
 - year: 2019
@@ -2913,7 +2913,7 @@
   display_authors: Psychogios Nikolaos, Hau David D., Peng Jun, et al.
   tag: Original Research
   lead: false
-  citations: 1747
+  citations: 1749
   date: '2011-02-16'
   pillar: ''
 - year: 2011
@@ -3107,7 +3107,7 @@
   display_authors: Cohen Freue Gabriela V., Hollander Zsuzsanna, Shen Enqing, et al.
   tag: Original Research
   lead: true
-  citations: 45
+  citations: 44
   date: '2007-10-12'
   pillar: ''
 - year: 2008
