@@ -1,6 +1,6 @@
 # PROOF Centre Website
 
-Welcome to the repository for the **PROOF Centre of Excellence** website ([theproofcentre.github.io/website](https://theproofcentre.github.io/website/)).
+Welcome to the repository for the **PROOF Centre of Excellence** website ([proofcentre.ca](https://proofcentre.ca/)).
 
 This website is built with [Hugo](https://gohugo.io/) and features an automated, native data ingestion pipeline that syncs content directly from a shared Google Spreadsheet.
 
