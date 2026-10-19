@@ -96,9 +96,14 @@ jobs:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
         run: |
+          # Do NOT override baseURL here. actions/configure-pages reports the
+          # project URL (https://<owner>.github.io/<repo>) while / until the
+          # custom domain is registered on the Pages site, and a baseURL with a
+          # path makes Hugo prefix every relURL with "/<repo>" -- so images and
+          # any other asset resolve to /website/images/... and 404 on the custom
+          # domain. hugo.toml owns the real baseURL (https://proofcentre.ca/).
           hugo \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url || 'https://proofcentre.ca' }}/"
+            --minify
 
       - name: Upload artifact
         if: steps.check_deploy.outputs.proceed == 'true'
